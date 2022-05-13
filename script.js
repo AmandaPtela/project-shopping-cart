@@ -4,7 +4,7 @@ function createProductImageElement(imageSource) {
   img.src = imageSource;
   return img;
 }
-createProductImageElement();
+
 // Cria elemento
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
@@ -24,7 +24,6 @@ function createProductItemElement({ sku, name, image }) {
 
   return section;
 }
-createProductItemElement(fetchItem());
 
 function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
