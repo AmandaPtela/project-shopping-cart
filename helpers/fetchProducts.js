@@ -1,5 +1,3 @@
-
-
 const fetchProducts = () => {
   const baseUrl = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
   const produto = fetch(`${baseUrl}`)
