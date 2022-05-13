@@ -1,17 +1,24 @@
-function createProductImageElement(imageSource) {
+//const { fetchProducts } = require("./helpers/fetchProducts");
+
+// Cria imagem do produto
+function createProductImageElement() {
+  //const imagem = fetchProducts();
   const img = document.createElement('img');
   img.className = 'item__image';
-  img.src = imageSource;
+  img.src = 'http://http2.mlstatic.com/D_704139-MLB47542929423_092021-I.jpg';
   return img;
 }
-
+createProductImageElement();
+// Cria elemento
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
-  e.className = className;
+  const section = document.createElement('section')
+  e.className = className
   e.innerText = innerText;
-  return e;
+  section.appendChild(e);
 }
 
+// Adiciona item na página
 function createProductItemElement({ sku, name, image }) {
   const section = document.createElement('section');
   section.className = 'item';

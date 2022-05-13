@@ -4,6 +4,8 @@ const getSavedCartItems = require('../helpers/getSavedCartItems');
 localStorageSimulator('getItem');
 
 describe('4 - Teste a função getSavedCartItems', () => {
-  // implemente seus testes aqui
-  fail('Teste vazio');
+/*   it('Ao recarregar a página, deve restaurar a lista do carrinho de compras ', () => {
+    expect().toBe('object');
+  }); */
+  
 });
