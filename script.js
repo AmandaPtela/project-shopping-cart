@@ -1,7 +1,7 @@
 const secaoCarrinho = document.querySelector('.cart__items');
 const local = document.querySelector('.items');
-const item = document.querySelector('.item');
-const botaoItem = document.querySelector('.item__add');
+const secaoitem = document.querySelector('.item');
+
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -57,11 +57,19 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
-const productItemClickListener = async (event) => {
-
+const dadosCarrinho = async (item) => {
+  const sku = item.parentElement.firstChild.innerText;
+  const { id, title, price } = await fetchItem(sku);
+  secaoCarrinho.appendChild(createCartItemElement({
+    sku: id,
+    name: title,
+    salePrice: price ,
+  })) 
 }
 
-window.onload = () => { 
-  itens();
+window.onload = async () => { 
+  await itens();
+  const botoesItens = document.querySelectorAll('.item__add');
+  botoesItens.forEach((item) => item.addEventListener('click', () => dadosCarrinho(item)));
 
 };
