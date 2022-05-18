@@ -1,5 +1,7 @@
 const secaoCarrinho = document.querySelector('.cart__items');
 const local = document.querySelector('.items');
+// const carrinho = document.querySelectorAll('li');
+const arrayPrecos = [];
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -42,9 +44,13 @@ const itens = async () => {
 /* function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 } */
-
+console.log(arrayPrecos);
 function cartItemClickListener(event) {
   secaoCarrinho.removeChild(event.target);
+  arrayPrecos.slice(EventTarget);
+  console.log(arrayPrecos);
+  // const total = document.querySelector('.total-price');
+  total.innerText = 'Valor total ';
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
@@ -54,6 +60,14 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.addEventListener('click', cartItemClickListener);
   return li;
 }
+// tentar fazer com o array dos itens ao invés de array separado
+/* function calcular() {
+  const calculo = carrinho.reduce((acc, item) => {
+    acc = acc + item;
+    return acc;
+  });
+  return calculo;
+}; */
 
 const dadosCarrinho = async (item) => {
   const sku = item.parentElement.firstChild.innerText;
@@ -63,16 +77,22 @@ const dadosCarrinho = async (item) => {
     name: title,
     salePrice: price,
   }));
+
+// FAZER CALCULO PROS PREÇOS
+
+  calcular();
+  const total = document.querySelector('.total-price');
+  total.innerText = calcular();
 };
-// PAREI AQUIIIIIIIIII / FAZER CALCULO PROS PREÇOS
-// const calculoPrecos = async () => {};
 
 // Apagar lista
 const limparCarrinho = () => {
   const botaoLimpar = document.querySelector('.empty-cart');
   botaoLimpar.addEventListener('click', () => {
-  const itensCarrinho = document.querySelector('li');
-  secaoCarrinho.remove(itensCarrinho);
+  secaoCarrinho.innerHTML = '';
+  const total = document.querySelector('.total-price');
+  arrayPrecos.length = 0;
+  total.innerText = 'Valor Total: ';
   });
 };
 
