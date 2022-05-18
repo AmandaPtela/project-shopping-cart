@@ -47,10 +47,10 @@ const itens = async () => {
 console.log(arrayPrecos);
 function cartItemClickListener(event) {
   secaoCarrinho.removeChild(event.target);
-  arrayPrecos.slice(EventTarget);
+/*   arrayPrecos.slice(EventTarget);
   console.log(arrayPrecos);
   // const total = document.querySelector('.total-price');
-  total.innerText = 'Valor total ';
+  total.innerText = 'Valor total '; */
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
@@ -90,6 +90,7 @@ const limparCarrinho = () => {
   const botaoLimpar = document.querySelector('.empty-cart');
   botaoLimpar.addEventListener('click', () => {
   secaoCarrinho.innerHTML = '';
+  // saveCartItems(secaoCarrinho.innerHTML);
   const total = document.querySelector('.total-price');
   arrayPrecos.length = 0;
   total.innerText = 'Valor Total: ';
