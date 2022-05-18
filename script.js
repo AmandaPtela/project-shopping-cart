@@ -64,9 +64,21 @@ const dadosCarrinho = async (item) => {
     salePrice: price,
   }));
 };
+// PAREI AQUIIIIIIIIII / FAZER CALCULO PROS PREÇOS
+// const calculoPrecos = async () => {};
+
+// Apagar lista
+const limparCarrinho = () => {
+  const botaoLimpar = document.querySelector('.empty-cart');
+  botaoLimpar.addEventListener('click', () => {
+  const itensCarrinho = document.querySelector('li');
+  secaoCarrinho.remove(itensCarrinho);
+  });
+};
 
 window.onload = async () => { 
   await itens();
   const botoesItens = document.querySelectorAll('.item__add');
   botoesItens.forEach((item) => item.addEventListener('click', () => dadosCarrinho(item)));
+  limparCarrinho();
 };
