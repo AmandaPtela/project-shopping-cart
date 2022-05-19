@@ -1,6 +1,5 @@
-const secaoCarrinho = document.querySelector('.cart__items');
 const saveCartItems = () => {
-  localStorage.setItem('itens', secaoCarrinho.children);
+  localStorage.setItem('itens', '1');
 };
 
 if (typeof module !== 'undefined') {

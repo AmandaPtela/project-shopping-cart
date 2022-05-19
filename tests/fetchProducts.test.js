@@ -6,7 +6,7 @@ describe('1 - Teste a função fecthProducts', () => {
   it('Deve retornar um objeto', () => {
     expect(typeof fetchProducts()).toBe('object');
   });
-/*   it("Deve retornar ", () => {
-    expect(typeof fetchProducts()).toContain('object');
-  }); */
+  it ('Deve retornar um objeto com 3 chaves: SKU, name, salePrice', () => {
+    expect(fetchProducts()).toEqual({sku, name, salePrice});
+  })
 });
