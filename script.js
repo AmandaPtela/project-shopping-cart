@@ -1,6 +1,6 @@
 const secaoCarrinho = document.querySelector('.cart__items');
 const local = document.querySelector('.items');
-// const carrinho = document.querySelectorAll('li');
+const total = document.querySelector('.total-price');
 const arrayPrecos = [];
 
 function createProductImageElement(imageSource) {
@@ -44,13 +44,27 @@ const itens = async () => {
 /* function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 } */
-console.log(arrayPrecos);
+
+function calcular() {
+  const calculo = arrayPrecos.reduce((acc, item) => {
+    let acumulador = acc;
+    acumulador += item;
+    return acumulador;
+  });
+  return calculo;
+}
+
 function cartItemClickListener(event) {
-  secaoCarrinho.removeChild(event.target);
-/*   arrayPrecos.slice(EventTarget);
-  console.log(arrayPrecos);
-  // const total = document.querySelector('.total-price');
-  total.innerText = 'Valor total '; */
+  event.target.remove();
+  const precoItem = event.target.innerHTML.split('$');
+  console.log(precoItem[1]);
+  function calculoRemovido() {
+    const result = calcular() - precoItem[1];
+    return result;
+  }
+  const valorAtual = calculoRemovido();
+  console.log(valorAtual);
+  total.innerText = calculoRemovido();
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
@@ -61,28 +75,19 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 // tentar fazer com o array dos itens ao invés de array separado
-/* function calcular() {
-  const calculo = carrinho.reduce((acc, item) => {
-    acc = acc + item;
-    return acc;
-  });
-  return calculo;
-}; */
 
 const dadosCarrinho = async (item) => {
   const sku = item.parentElement.firstChild.innerText;
   const { id, title, price } = await fetchItem(sku);
-  secaoCarrinho.appendChild(createCartItemElement({
+  const itensss = createCartItemElement({
     sku: id,
     name: title,
     salePrice: price,
-  }));
-
-// FAZER CALCULO PROS PREÇOS
-
-  calcular();
-  const total = document.querySelector('.total-price');
+  });
+  secaoCarrinho.appendChild(itensss);
+  arrayPrecos.push(price);
   total.innerText = calcular();
+// FAZER CALCULO PROS PREÇOS
 };
 
 // Apagar lista
@@ -90,8 +95,6 @@ const limparCarrinho = () => {
   const botaoLimpar = document.querySelector('.empty-cart');
   botaoLimpar.addEventListener('click', () => {
   secaoCarrinho.innerHTML = '';
-  // saveCartItems(secaoCarrinho.innerHTML);
-  const total = document.querySelector('.total-price');
   arrayPrecos.length = 0;
   total.innerText = 'Valor Total: ';
   });
