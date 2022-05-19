@@ -1,5 +1,6 @@
+const secaoCarrinho = document.querySelector('.cart__items');
 const saveCartItems = () => {
-  // localStorage.setItem('itens', produtos);
+  localStorage.setItem('itens', secaoCarrinho.children);
 };
 
 if (typeof module !== 'undefined') {

@@ -2,6 +2,7 @@ const secaoCarrinho = document.querySelector('.cart__items');
 const local = document.querySelector('.items');
 const total = document.querySelector('.total-price');
 const arrayPrecos = [];
+const carregamento = document.querySelector('.loading');
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -39,6 +40,7 @@ const itens = async () => {
     });
     return local.appendChild(itemNovo);
   });
+  local.removeChild(carregamento);
 };
 
 /* function getSkuFromProductItem(item) {
@@ -74,7 +76,6 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.addEventListener('click', cartItemClickListener);
   return li;
 }
-// tentar fazer com o array dos itens ao invés de array separado
 
 const dadosCarrinho = async (item) => {
   const sku = item.parentElement.firstChild.innerText;
