@@ -6,7 +6,11 @@ describe('1 - Teste a função fecthProducts', () => {
   it('Deve retornar um objeto', () => {
     expect(typeof fetchProducts()).toBe('object');
   });
-  it ('Deve retornar um objeto com 3 chaves: SKU, name, salePrice', () => {
-    expect(fetchProducts()).toEqual({sku, name, salePrice});
-  })
+  it('Deve ser uma função', () => {
+    expect(typeof fetchProducts).toBe('function');
+  });
+  it("Verifica se ao chamar a função com 'computador' como argumento, o mesmo assuma lugar no fim da URL para fazer a requisição", async () => {
+    await fetchProducts('computador');
+    expect(fetch).toHaveBeenCalledWith('https://api.mercadolibre.com/sites/MLB/search?q=computador')
+  });
 });

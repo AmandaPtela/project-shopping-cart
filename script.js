@@ -59,13 +59,10 @@ function calcular() {
 function cartItemClickListener(event) {
   event.target.remove();
   const precoItem = event.target.innerHTML.split('$');
-  console.log(precoItem[1]);
   function calculoRemovido() {
     const result = calcular() - precoItem[1];
     return result;
   }
-  const valorAtual = calculoRemovido();
-  console.log(valorAtual);
   total.innerText = calculoRemovido();
 }
 
@@ -91,7 +88,6 @@ const dadosCarrinho = async (item) => {
 // FAZER CALCULO PROS PREÇOS
 };
 
-// Apagar lista
 const limparCarrinho = () => {
   const botaoLimpar = document.querySelector('.empty-cart');
   botaoLimpar.addEventListener('click', () => {
