@@ -86,7 +86,7 @@ const dadosCarrinho = async (item) => {
   secaoCarrinho.appendChild(itensss);
   arrayPrecos.push(price);
   total.innerText = calcular();
-// FAZER CALCULO PROS PREÇOS
+  saveCartItems(secaoCarrinho.innerHTML);
 };
 
 const limparCarrinho = () => {
@@ -103,4 +103,9 @@ window.onload = async () => {
   const botoesItens = document.querySelectorAll('.item__add');
   botoesItens.forEach((item) => item.addEventListener('click', () => dadosCarrinho(item)));
   limparCarrinho();
+  secaoCarrinho.innerHTML = getSavedCartItems();
+  const arrayItens = document.querySelectorAll('.cart__item');
+  arrayItens.forEach((li) => li.addEventListener('click', (event) => {
+    event.target.remove();
+  }));
 };
