@@ -64,6 +64,7 @@ function cartItemClickListener(event) {
     return result;
   }
   total.innerText = calculoRemovido();
+  saveCartItems(cartItems.innerHTML);
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
