@@ -15,3 +15,4 @@ Foi desenvolvido utilizando _HTML, CSS, e JavaScript_ e a API do Mercado Livre.
     - Na pasta onde o projeto está salvo, clique com o botão direito sobre o arquivo _HTML_.
     - Selecione _abrir com_: escolha um navegador (Uma nova página deve abrir no seu navegador com o projeto)
 
+*Pasta _helpers_ de autoria da **Trybe***
